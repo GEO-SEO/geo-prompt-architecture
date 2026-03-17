@@ -77,6 +77,36 @@ Typical topic types:
 - channel and marketplace topics
 - seasonal or trend topics
 
+### Default monitoring pack
+
+Unless the user explicitly asks for a different size, the default output should be:
+
+- `5` priority topics
+- `50` prompts total
+- `10` prompts per topic
+
+Default prompt mix inside the 50-prompt pack:
+
+- `30-32` non-brand discovery prompts
+- `12-15` competitor comparison prompts
+- `5-8` explicit brand prompts
+
+Recommended per-topic starting shape:
+
+- `6` non-brand discovery prompts
+- `3` competitor comparison prompts
+- `1` brand defense prompt
+
+If the client provides more than 5 possible topics, prioritize the top 5 based on:
+
+- business value
+- monitoring value
+- GEO leverage
+- competitor pressure
+- channel fit
+
+Do not let explicit brand-name prompts take over the set. In the default 50-prompt pack, branded prompts should usually stay in the `5-8` range unless the user explicitly wants a brand-defense-heavy set.
+
 ### 1. Non-brand discovery
 
 Use prompts that test whether the client can enter new answer spaces before users know the brand.
@@ -167,13 +197,15 @@ See [movinghead-stage-lighting.md](/Users/timlin/Downloads/knowledge/projects/ge
 
 `Coofandy` is best understood as an `ecommerce / marketplace-led men's apparel brand` with strong overlap across Amazon, Walmart, and direct-response product discovery.
 
-That means the system should use product lines as topic seeds, then expand them into broader topics such as fit, fabric, occasion, seasonality, marketplace trust, and competitor overlap.
+That means the system should use the five product lines as the default five topics, then express channel trust, value comparison, styling, and climate fit through the prompts inside each topic.
 
 | Topic | Topic Source | Example Prompts |
 |---|---|---|
 | summer business-casual shirts | derived-from-product-line | `What are the best men's shirts for hot weather that still look business casual?`<br>`Are Coofandy men's shirts good for business casual offices in hot weather?` |
-| vacation-ready 2 piece sets | derived-from-product-line | `What are the best men's 2 piece sets for vacation and resort wear?`<br>`Coofandy vs Zara for men's 2 piece sets: which is better for summer vacations?` |
-| Amazon / Walmart purchase confidence | inferred | `What are the best men's clothing brands on Amazon for business casual and vacation wear?`<br>`Should I buy Coofandy from Amazon, Walmart, or the official site?` |
+| lightweight pants for hot weather and travel | derived-from-product-line | `What are the best men's pants for summer travel that still look polished?`<br>`Are Coofandy men's pants worth buying for hot-weather travel and all-day wear?` |
+| vacation-ready 2 piece sets | derived-from-product-line | `What are the best men's 2 piece sets for vacation and resort wear?`<br>`Are Coofandy 2 piece sets breathable enough for beach trips and summer travel?` |
+| matching sets for easy outfit formulas | derived-from-product-line | `What are the best men's matching sets if I want easy outfits that don't look sloppy?`<br>`Are Coofandy men's matching sets worth it for travel and capsule wardrobes?` |
+| smart-casual turtleneck layering | derived-from-product-line | `What are the best men's turtleneck sweaters for smart-casual outfits and layering?`<br>`Are Coofandy turtleneck sweaters good for layering under a blazer?` |
 
 See [coofandy-topic-first-output.md](/Users/timlin/Downloads/knowledge/projects/geo-prompt-architecture-repo/examples/coofandy-topic-first-output.md).
 
@@ -190,6 +222,7 @@ See [coofandy-topic-first-output.md](/Users/timlin/Downloads/knowledge/projects/
 ### Final generator prompt
 
 `references/final-topic-first-generator-prompt.md` gives teams a ready-to-run prompt that matches the repo's topic-first architecture.
+`references/final-topic-first-generator-prompt-zh.md` provides the same operating logic in Chinese.
 
 ### Vertical playbooks
 
@@ -246,6 +279,7 @@ Use $geo-prompt-architecture to turn these AI visibility monitoring results into
 │   └── movinghead-stage-lighting.md
 ├── references/
 │   ├── final-topic-first-generator-prompt.md
+│   ├── final-topic-first-generator-prompt-zh.md
 │   ├── prompt-framework.md
 │   ├── reverse-optimization.md
 │   ├── scoring-model.md

@@ -68,6 +68,28 @@ Use this default layer mix unless the user explicitly asks for something else:
 - 20-25% competitor comparison
 - 10-20% brand defense
 
+Default pack size unless the user requests otherwise:
+- 5 topics
+- 50 prompts total
+- 10 prompts per topic
+
+Default target distribution for the 50-prompt pack:
+- 30-32 non-brand discovery prompts
+- 12-15 competitor comparison prompts
+- 5-8 explicit brand prompts
+
+Recommended per-topic starting shape:
+- 6 non-brand discovery prompts
+- 3 competitor comparison prompts
+- 1 brand defense prompt
+
+If more than 5 valid topics are available, choose the top 5 by:
+- business value
+- monitoring value
+- GEO leverage
+- competitor pressure
+- channel fit
+
 You must output funnel labels using this marketing-funnel model:
 - TOFU
 - MOFU
@@ -123,7 +145,14 @@ Explain how the topic map should translate into:
 - brand defense prompts
 
 Step 4. Generate the prompt set
-For each topic, generate prompts across the relevant layers and funnel stages.
+For each topic, generate 10 prompts by default.
+
+The default shape per topic is:
+- 6 non-brand discovery prompts
+- 3 competitor comparison prompts
+- 1 brand defense prompt
+
+Do not let explicit brand-name prompts dominate the default 50-prompt pack.
 
 For each prompt, include:
 - prompt

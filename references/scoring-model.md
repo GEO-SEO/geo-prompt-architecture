@@ -21,6 +21,7 @@ Score up when:
 Score down when:
 
 - there is no topic map
+- the set does not converge into a clear top 5 topics for the default pack
 - one product line dominates the whole set
 - trust, comparison, or channel topics are missing
 - topics duplicate each other
@@ -29,9 +30,9 @@ Score down when:
 
 Check whether the set roughly follows the intended mix:
 
-- `60-70%` non-brand discovery
-- `20-25%` competitor comparison
-- `10-20%` brand defense
+- `30-32` non-brand discovery prompts in a 50-prompt pack
+- `12-15` competitor comparison prompts in a 50-prompt pack
+- `5-8` explicit brand prompts in a 50-prompt pack
 
 Score down when:
 
@@ -111,6 +112,7 @@ Use these score buckets:
 ## 3. Common Reasons A Set Scores Poorly
 
 - no topic map
+- no clear `5 topics / 50 prompts` structure in the default pack
 - too many branded prompts
 - no real discovery prompts
 - weak or missing competitor set

@@ -71,10 +71,15 @@ Infer topics from:
 
 ### Recommended topic count
 
-For most clients, aim for:
+For the default monitoring pack, aim for:
 
-- `5-8` core topics for a compact set
-- `8-15` topics for a standard monitoring program
+- `5` priority topics
+- `50` prompts total
+- `10` prompts per topic
+
+If the client needs a lightweight version, you can go smaller.
+If the client needs a custom enterprise pack, you can go larger.
+But the default operating assumption should be `5 topics / 50 prompts`.
 
 Avoid topic maps that are:
 
@@ -96,7 +101,7 @@ Best for:
 - educational prompts
 - topic prompts without the brand
 
-Typical output share: `60-70%`
+Typical output share in the default 50-prompt pack: `30-32` prompts
 
 ### Competitor comparison
 
@@ -109,7 +114,7 @@ Best for:
 - `which brand is better for [topic or use case]`
 - competitor-cluster prompts built around user-provided rivals
 
-Typical output share: `20-25%`
+Typical output share in the default 50-prompt pack: `12-15` prompts
 
 ### Brand defense
 
@@ -123,7 +128,9 @@ Best for:
 - `does [brand] fit [segment, weather, occasion, or channel need]`
 - `[brand] vs [competitor]`
 
-Typical output share: `10-20%`
+Typical output share in the default 50-prompt pack: `5-8` explicit brand prompts
+
+In most default packs, start with only `1` brand-defense prompt per topic.
 
 Avoid low-value brand navigation prompts unless the user explicitly wants them.
 

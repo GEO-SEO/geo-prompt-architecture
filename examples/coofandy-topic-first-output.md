@@ -1,12 +1,15 @@
 # Example Output: Coofandy
 
-This example shows how the system should behave when a client provides product lines but not a fully developed topic map.
+This example shows the corrected default operating model for a GEO prompt pack:
 
-The right behavior is:
+- `5` topics
+- `50` prompts total
+- `10` prompts per topic
+- `30` non-brand discovery prompts
+- `15` competitor comparison prompts
+- `5` brand defense prompts
 
-1. use product lines as topic seeds
-2. generate missing topics around use case, occasion, trust, channels, and competitors
-3. generate prompts inside each topic instead of producing one flat keyword-like list
+The purpose is to avoid the common failure mode where a prompt set becomes too brand-heavy and stops behaving like a real GEO monitoring system.
 
 ## Input Summary
 
@@ -27,163 +30,159 @@ The right behavior is:
   - medium-high: Banana Republic, Nautica
   - medium: Ralph Lauren, Gap, Tommy Hilfiger, Zara, Levi's, Calvin Klein, Steve Harvey
 
-## Why This Client Needs Topic Generation
+## Why This Version Is Better
 
-If the system only uses the provided product lines, it will miss important monitoring space such as:
+The earlier example overused branded prompts by forcing every topic to include too much brand-heavy logic.
 
-- hot-weather fabric and comfort questions
-- business-casual versus vacation use cases
-- Amazon and Walmart trust and purchase-channel questions
-- value comparisons against better-known mall and department-store brands
-- fit, sizing, and outfit-building prompts
+This corrected version keeps the real GEO priorities:
 
-So the final prompt set should not be:
+- discovery prompts should dominate
+- competitor prompts should mostly test whether the brand can enter comparison spaces without being named
+- brand-defense prompts should stay sparse and high-value
 
-`product line -> prompts only`
-
-It should be:
-
-`product line seeds -> topic map -> prompts by topic`
+In this example, only `5` prompts explicitly use `Coofandy`, one per topic.
 
 ## Topic Map
 
 | Topic | Topic Type | Topic Source | Related Product Lines | Why This Topic Exists |
 |---|---|---|---|---|
-| summer business-casual shirts | product-category | derived-from-product-line | mens shirts | Core volume topic with strong overlap between workwear and casual styling. |
-| lightweight pants for hot weather and travel | product-category | derived-from-product-line | mens pants | Strong commercial topic tied to comfort, travel, and summer office wear. |
-| vacation-ready 2 piece sets | product-category | derived-from-product-line | 2 piece set | Signature Coofandy category with strong resort and easy-outfit intent. |
-| matching sets for easy outfit formulas | product-category | derived-from-product-line | mens matching sets | High-fit category for AI recommendation flows around convenience and styling. |
-| smart-casual turtleneck layering | product-category | derived-from-product-line | mens turtleneck sweater | Seasonal topic for fall and winter smart-casual positioning. |
-| affordable premium-looking menswear | competitor-alternative | inferred | mens shirts, mens pants, matching sets | Coofandy competes on value against better-known brands with more premium perception. |
-| hot-weather fabric, breathability, and comfort | use-case | inferred | mens shirts, mens pants, matching sets | Repeated user intent cluster across shirts, pants, and sets. |
-| vacation, brunch, and date-night dressing | use-case | inferred | 2 piece set, mens matching sets, mens shirts | Occasion-driven topic where outfit recommendations matter more than product taxonomy. |
-| Amazon / Walmart purchase confidence | channel-marketplace | inferred | all | Marketplace visibility and trust are part of the purchase path. |
-| fit, sizing, and outfit-building confidence | trust-evaluation | inferred | all | Essential brand-defense topic for apparel purchase decisions and returns risk. |
+| summer business-casual shirts | product-category | derived-from-product-line | mens shirts | Core volume topic with overlap across office, smart casual, and hot-weather wear. |
+| lightweight pants for hot weather and travel | product-category | derived-from-product-line | mens pants | Strong demand cluster around comfort, travel, and polished summer dressing. |
+| vacation-ready 2 piece sets | product-category | derived-from-product-line | 2 piece set | Signature Coofandy category with resort, vacation, and easy-outfit intent. |
+| matching sets for easy outfit formulas | product-category | derived-from-product-line | mens matching sets | High-fit category for convenience-led outfit planning and casual travel. |
+| smart-casual turtleneck layering | product-category | derived-from-product-line | mens turtleneck sweater | Seasonal topic for fall and winter layering, smart casual, and value comparison. |
 
-## Topic Strategy By Layer
+## Default Pack Structure
 
-### Non-brand discovery
+For this client, the default `5 topics / 50 prompts` pack uses:
 
-Use non-brand prompts to test whether Coofandy enters answer spaces such as:
+- `6` non-brand discovery prompts per topic
+- `3` competitor comparison prompts per topic
+- `1` brand defense prompt per topic
 
-- best men's shirts for hot weather
-- best affordable business-casual pants
-- best matching sets for vacation
-- best men's turtleneck sweaters for layering
+That produces:
 
-These are the prompts that measure GEO expansion, not just brand recall.
+- `30` non-brand discovery prompts
+- `15` competitor comparison prompts
+- `5` brand defense prompts
 
-### Competitor comparison
+## Prompt Set
 
-Use comparison prompts to test whether Coofandy appears against:
+### Topic 1: summer business-casual shirts
 
-- Express
-- Banana Republic
-- Men's Wearhouse
-- Nautica
-- Gap
-- Zara
+| Layer | Funnel | Prompt | Why It Matters |
+|---|---|---|---|
+| Non-brand discovery | TOFU | How can men dress business casual in summer without wearing stiff dress shirts? | Captures educational intent before brand awareness. |
+| Non-brand discovery | TOFU | What shirt fabrics are best for humid weather and all-day office comfort? | Connects fabric logic to hot-weather business use. |
+| Non-brand discovery | TOFU | What colors of men's shirts are most versatile for summer business-casual outfits? | Useful for styling-led, non-branded discovery. |
+| Non-brand discovery | MOFU | What are the best men's shirts for hot weather that still look business casual? | Core category-entry prompt with strong commercial value. |
+| Non-brand discovery | MOFU | What are the best men's shirts for travel that stay comfortable and look polished? | Bridges travel and office-ready shirt demand. |
+| Non-brand discovery | MOFU | What are the best affordable men's shirts that look more premium than they cost? | Important value-style discovery prompt. |
+| Competitor comparison | MOFU | What are the best alternatives to Banana Republic men's shirts for summer business casual? | Tests whether Coofandy can enter non-branded alternative lists. |
+| Competitor comparison | MOFU | Express vs Banana Republic men's shirts: which is better for affordable office style? | Comparison cluster likely to surface replacement candidates. |
+| Competitor comparison | MOFU | Which men's brands make the best affordable business-casual shirts for hot weather? | Broad comparison prompt that should allow candidate-list entry. |
+| Brand defense | BOFU | Are Coofandy men's shirts good for business casual offices in hot weather? | High-value branded validation prompt tied to the core use case. |
 
-The point is not just `Coofandy vs X`.
+### Topic 2: lightweight pants for hot weather and travel
 
-It is also whether Coofandy enters prompts like:
+| Layer | Funnel | Prompt | Why It Matters |
+|---|---|---|---|
+| Non-brand discovery | TOFU | What pants fabrics are best for hot and humid weather if I still want to look put together? | Educational climate-led prompt. |
+| Non-brand discovery | TOFU | What shoes work best with lightweight men's pants for summer outfits? | Styling entry point that can expose brand fit later. |
+| Non-brand discovery | TOFU | Can men's linen or lightweight pants work for business casual offices? | Bridges category education with workplace context. |
+| Non-brand discovery | MOFU | What are the best men's pants for summer travel that still look polished? | Strong demand cluster around travel and presentation. |
+| Non-brand discovery | MOFU | What are the best affordable men's pants for travel, walking, and dinner outfits? | Tests value-oriented commercial intent. |
+| Non-brand discovery | MOFU | What are the best men's pants for flights and all-day wear that don't look sloppy? | High intent with clear comfort and appearance needs. |
+| Competitor comparison | MOFU | What are the best alternatives to Banana Republic men's summer pants? | Classic alternative-entry prompt. |
+| Competitor comparison | MOFU | Gap vs Nautica men's pants: which is better for relaxed summer style? | Competitor comparison that can generate replacement opportunities. |
+| Competitor comparison | BOFU | Which men's brands make the best lightweight business-casual pants without premium prices? | Strong commercial comparison prompt. |
+| Brand defense | BOFU | Are Coofandy men's pants worth buying for hot-weather travel and all-day wear? | High-value branded decision-stage question. |
 
-- best alternatives to Banana Republic for affordable business casual
-- what brands offer vacation-ready men's matching sets besides Zara
+### Topic 3: vacation-ready 2 piece sets
 
-### Brand defense
+| Layer | Funnel | Prompt | Why It Matters |
+|---|---|---|---|
+| Non-brand discovery | TOFU | What fabrics are best for men's 2 piece sets in hot weather? | Educational prompt tied to climate and comfort. |
+| Non-brand discovery | TOFU | Can men's 2 piece sets work for smart casual dinners or rooftop events? | Expands category understanding beyond loungewear. |
+| Non-brand discovery | TOFU | What colors make men's 2 piece sets look more expensive? | Styling-led discovery with value implications. |
+| Non-brand discovery | MOFU | What are the best men's 2 piece sets for vacation and resort wear? | Core category query with strong monitoring value. |
+| Non-brand discovery | MOFU | What are the best affordable men's 2 piece sets for beach trips and summer travel? | High-intent value cluster. |
+| Non-brand discovery | MOFU | Can I wear a men's 2 piece set as separates for multiple outfits on one trip? | Important wardrobe-efficiency prompt. |
+| Competitor comparison | MOFU | What are the best alternatives to Zara men's 2 piece sets for summer vacations? | Tests whether Coofandy enters a fashionable alternative set. |
+| Competitor comparison | MOFU | Zara vs Express for men's vacation sets: which is better value? | Comparison pattern that can yield category substitution. |
+| Competitor comparison | BOFU | Which men's brands make the best resort-ready 2 piece sets without designer prices? | Strong commercial shortlist prompt. |
+| Brand defense | BOFU | Are Coofandy 2 piece sets breathable enough for beach trips and summer travel? | Branded validation tied directly to climate and travel intent. |
 
-Use brand-defense prompts to test:
+### Topic 4: matching sets for easy outfit formulas
 
-- quality perception
-- sizing clarity
-- whether Amazon or Walmart listings support the brand story
-- whether Coofandy is framed correctly for business casual, vacation, and value-conscious buyers
+| Layer | Funnel | Prompt | Why It Matters |
+|---|---|---|---|
+| Non-brand discovery | TOFU | Are men's matching sets still in style for adults, or do they look too trendy? | Captures style skepticism before purchase intent. |
+| Non-brand discovery | TOFU | How should men's matching sets fit if I want a polished but relaxed look? | Helpful fit-led educational prompt. |
+| Non-brand discovery | TOFU | Can men's matching sets work for brunch, date nights, and vacation outfits? | Occasion-driven discovery beyond product taxonomy. |
+| Non-brand discovery | MOFU | What are the best men's matching sets if I want easy outfits that don't look sloppy? | Strong convenience-led category prompt. |
+| Non-brand discovery | MOFU | What are the best men's matching sets for weekend travel and casual dinners? | Commercial scenario prompt with clear use case. |
+| Non-brand discovery | MOFU | What are the best affordable men's matching sets for summer capsule wardrobes? | High-value, high-utility discovery prompt. |
+| Competitor comparison | MOFU | What are the best alternatives to Nautica or Express for men's matching sets? | Non-branded alternative discovery around known competitors. |
+| Competitor comparison | MOFU | Zara vs Nautica men's matching sets: which is better for everyday summer wear? | Useful mainstream comparison space. |
+| Competitor comparison | MOFU | Which men's brands make matching sets that feel mature and wearable, not flashy? | Helps test audience-fit candidate entry. |
+| Brand defense | BOFU | Are Coofandy men's matching sets worth it for travel and capsule wardrobes? | Single branded validation prompt for this topic. |
 
-## Prompt Slice By Topic
+### Topic 5: smart-casual turtleneck layering
 
-Below is a compact example output. A full production run would usually generate many more prompts per topic.
-
-| Topic | Layer | Funnel | Prompt | Why It Matters |
-|---|---|---|---|---|
-| summer business-casual shirts | Non-brand discovery | MOFU | What are the best men's shirts for hot weather that still look business casual? | Core discovery prompt for summer workwear visibility. |
-| summer business-casual shirts | Competitor comparison | MOFU | Which brand is better for affordable business-casual men's shirts: Coofandy, Express, or Banana Republic? | Tests whether Coofandy enters mainstream comparison sets. |
-| summer business-casual shirts | Brand defense | BOFU | Are Coofandy men's shirts good for business casual offices in hot weather? | Validates brand fit for the most important use case. |
-| lightweight pants for hot weather and travel | Non-brand discovery | TOFU | What are the best men's pants for summer travel that still look polished? | Connects pants to travel + appearance intent. |
-| lightweight pants for hot weather and travel | Competitor comparison | MOFU | What are the best affordable alternatives to Banana Republic men's summer pants? | Tests substitution into premium-value comparison space. |
-| lightweight pants for hot weather and travel | Brand defense | BOFU | Are Coofandy men's pants worth buying for hot-weather travel and all-day wear? | Tests comfort and value narrative together. |
-| vacation-ready 2 piece sets | Non-brand discovery | MOFU | What are the best men's 2 piece sets for vacation and resort wear? | High-intent discovery prompt around a signature category. |
-| vacation-ready 2 piece sets | Competitor comparison | MOFU | Coofandy vs Zara for men's 2 piece sets: which is better for summer vacations? | Tests whether Coofandy can compete in fashionable vacation intent. |
-| vacation-ready 2 piece sets | Brand defense | BOFU | Are Coofandy 2 piece sets breathable enough for beach trips and summer travel? | Strong brand-defense prompt tied to climate and travel. |
-| matching sets for easy outfit formulas | Non-brand discovery | TOFU | What are the best men's matching sets if I want easy outfits that do not look sloppy? | Captures convenience-led outfit intent. |
-| matching sets for easy outfit formulas | Competitor comparison | MOFU | Which brand makes better men's matching sets for adults: Coofandy, Nautica, or Express? | Tests positioning beyond trend-led fashion brands. |
-| matching sets for easy outfit formulas | Brand defense | BOFU | Are Coofandy men's matching sets worth it for travel and capsule wardrobes? | Measures if the brand owns convenience and versatility. |
-| smart-casual turtleneck layering | Non-brand discovery | MOFU | What are the best men's turtleneck sweaters for smart-casual outfits and layering? | Core seasonal prompt for fall and winter styling. |
-| smart-casual turtleneck layering | Competitor comparison | MOFU | Coofandy vs Ralph Lauren for men's turtleneck sweaters: which is better value? | Tests value-versus-premium comparison entry. |
-| smart-casual turtleneck layering | Brand defense | BOFU | Are Coofandy turtleneck sweaters good for layering under a blazer? | Checks if AI connects the brand to the right styling use case. |
-| affordable premium-looking menswear | Non-brand discovery | TOFU | What men's clothing brands look more expensive than they actually are? | Broad value-style discovery prompt with strong brand-entry potential. |
-| affordable premium-looking menswear | Competitor comparison | MOFU | What are the best affordable alternatives to Banana Republic and Express for men's business casual? | Important competitor-set prompt for value positioning. |
-| affordable premium-looking menswear | Brand defense | BOFU | Is Coofandy a good brand if I want affordable clothes that still look polished? | Directly tests brand narrative control. |
-| hot-weather fabric, breathability, and comfort | Non-brand discovery | TOFU | What fabrics are best for men's summer shirts, pants, and matching sets? | Educational prompt that can open multiple topic surfaces. |
-| hot-weather fabric, breathability, and comfort | Competitor comparison | MOFU | Which menswear brands are best for breathable summer outfits without paying premium prices? | Tests category entry through comfort and value. |
-| hot-weather fabric, breathability, and comfort | Brand defense | BOFU | Are Coofandy clothes good for hot and humid weather? | Important brand-defense question for US summer markets. |
-| vacation, brunch, and date-night dressing | Non-brand discovery | TOFU | What should men wear on vacation if they want easy outfits that still look put together? | Occasion-led discovery prompt outside rigid product taxonomy. |
-| vacation, brunch, and date-night dressing | Competitor comparison | MOFU | Which brands are best for men's vacation outfits: Coofandy, Zara, or Tommy Hilfiger? | Tests if Coofandy appears in style-oriented comparisons. |
-| vacation, brunch, and date-night dressing | Brand defense | BOFU | What Coofandy pieces are best for beach dinners, brunch, and casual date nights? | Connects the brand to real-life outfit planning. |
-| Amazon / Walmart purchase confidence | Non-brand discovery | MOFU | What are the best men's clothing brands on Amazon for business casual and vacation wear? | Measures marketplace-led discovery, not just website visibility. |
-| Amazon / Walmart purchase confidence | Competitor comparison | BOFU | Which men's clothing brand on Walmart gives better value: Coofandy, Nautica, or Gap? | Tests channel-specific comparison behavior. |
-| Amazon / Walmart purchase confidence | Brand defense | BOFU | Should I buy Coofandy from Amazon, Walmart, or the official site? | Critical brand-defense and channel-trust prompt. |
-| fit, sizing, and outfit-building confidence | Non-brand discovery | TOFU | How do I build a simple men's summer wardrobe around shirts, pants, and matching sets? | Captures outfit-building intent that can drive multiple product exposures. |
-| fit, sizing, and outfit-building confidence | Competitor comparison | MOFU | Which men's brands are best for easy sizing and low-risk online shopping? | Strong comparison prompt around trust and returns anxiety. |
-| fit, sizing, and outfit-building confidence | Brand defense | BOFU | Does Coofandy run true to size for shirts, pants, and matching sets? | High-monitoring-value brand-defense prompt for ecommerce. |
+| Layer | Funnel | Prompt | Why It Matters |
+|---|---|---|---|
+| Non-brand discovery | TOFU | Are turtleneck sweaters still in style for men, or do they look dated? | Captures top-funnel fashion hesitancy. |
+| Non-brand discovery | TOFU | What fabric is best for a men's turtleneck sweater if I want something soft but not too warm? | Educational fabric-led prompt. |
+| Non-brand discovery | TOFU | What colors of men's turtleneck sweaters are most versatile for fall and winter? | Classic styling and wardrobe-building prompt. |
+| Non-brand discovery | MOFU | What are the best men's turtleneck sweaters for smart-casual outfits and layering? | Core seasonal category prompt. |
+| Non-brand discovery | MOFU | Can a men's turtleneck replace a dress shirt in a business-casual wardrobe? | Helps test smart-casual substitution logic. |
+| Non-brand discovery | MOFU | What are the best affordable men's turtleneck sweaters that look premium under a blazer? | Value-oriented commercial discovery. |
+| Competitor comparison | MOFU | What are the best alternatives to Banana Republic men's turtleneck sweaters? | Alternative prompt that should allow candidate-list entry. |
+| Competitor comparison | MOFU | Ralph Lauren vs Calvin Klein turtleneck sweaters: which is better value for smart casual outfits? | Premium-to-mainstream comparison cluster. |
+| Competitor comparison | MOFU | Which men's brands make good turtleneck sweaters for layering without luxury prices? | Strong value-comparison prompt. |
+| Brand defense | BOFU | Are Coofandy turtleneck sweaters good for layering under a blazer? | Branded validation tied to the core styling use case. |
 
 ## Priority Monitoring List
 
 ### Top Topics
 
 - summer business-casual shirts
+- lightweight pants for hot weather and travel
 - vacation-ready 2 piece sets
 - matching sets for easy outfit formulas
-- affordable premium-looking menswear
-- Amazon / Walmart purchase confidence
+- smart-casual turtleneck layering
 
-### Top Non-Brand Discovery Prompts
+### Top Non-brand Discovery Prompts
 
 - What are the best men's shirts for hot weather that still look business casual?
+- What are the best men's pants for summer travel that still look polished?
 - What are the best men's 2 piece sets for vacation and resort wear?
-- What men's clothing brands look more expensive than they actually are?
-- What are the best men's clothing brands on Amazon for business casual and vacation wear?
+- What are the best men's matching sets if I want easy outfits that don't look sloppy?
+- What are the best men's turtleneck sweaters for smart-casual outfits and layering?
 
 ### Top Competitor Comparison Prompts
 
-- Which brand is better for affordable business-casual men's shirts: Coofandy, Express, or Banana Republic?
-- What are the best affordable alternatives to Banana Republic and Express for men's business casual?
-- Which men's clothing brand on Walmart gives better value: Coofandy, Nautica, or Gap?
+- What are the best alternatives to Banana Republic men's shirts for summer business casual?
+- What are the best alternatives to Banana Republic men's summer pants?
+- What are the best alternatives to Zara men's 2 piece sets for summer vacations?
+- What are the best alternatives to Nautica or Express for men's matching sets?
+- What are the best alternatives to Banana Republic men's turtleneck sweaters?
 
 ### Top Brand Defense Prompts
 
 - Are Coofandy men's shirts good for business casual offices in hot weather?
-- Is Coofandy a good brand if I want affordable clothes that still look polished?
-- Should I buy Coofandy from Amazon, Walmart, or the official site?
-- Does Coofandy run true to size for shirts, pants, and matching sets?
-
-## Asset Implications
-
-This topic map suggests that Coofandy would likely benefit from:
-
-- stronger category pages for business-casual shirts and hot-weather pants
-- more outfit and occasion pages for vacation, brunch, and date-night use cases
-- stronger collection or editorial pages for matching sets and 2 piece sets
-- more explicit fit, sizing, and material guidance
-- stronger Amazon and Walmart listing language aligned with the same topics
-- comparison and value-positioning assets against Banana Republic, Express, and similar brands
+- Are Coofandy men's pants worth buying for hot-weather travel and all-day wear?
+- Are Coofandy 2 piece sets breathable enough for beach trips and summer travel?
+- Are Coofandy men's matching sets worth it for travel and capsule wardrobes?
+- Are Coofandy turtleneck sweaters good for layering under a blazer?
 
 ## Why This Example Matters
 
-It shows the exact behavior the system should have:
+It demonstrates the intended default behavior:
 
-- do not wait for the client to hand over perfect topics
-- use product lines as topic seeds
-- generate missing topics automatically
-- build prompts under topics, not as a flat list
-- make the final monitoring system more useful for later optimization
+- `5 topics / 50 prompts`
+- discovery prompts dominate
+- competitor prompts mainly stay non-branded
+- explicit branded prompts stay sparse and strategic
+- every topic still has one strong brand-defense question for downstream monitoring

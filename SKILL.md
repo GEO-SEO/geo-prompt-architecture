@@ -63,6 +63,24 @@ Topic sources can be:
 - product lines turned into topic seeds
 - inferred topics generated from the website, business model, use cases, competitors, channels, and weak AI surfaces
 
+Default pack size:
+
+- `5` topics
+- `50` prompts total
+- `10` prompts per topic
+
+Default pack mix:
+
+- `30-32` non-brand discovery prompts
+- `12-15` competitor comparison prompts
+- `5-8` explicit brand prompts
+
+Recommended per-topic starting shape:
+
+- `6` non-brand discovery prompts
+- `3` competitor comparison prompts
+- `1` brand defense prompt
+
 Default target mix:
 
 - `60-70%` non-brand discovery
@@ -139,6 +157,14 @@ Every output should make it clear whether a topic is:
 - `derived-from-product-line`
 - `inferred`
 
+If the system identifies more than 5 valid topics, choose the top 5 by:
+
+- business value
+- monitoring value
+- GEO leverage
+- competitor pressure
+- channel fit
+
 ### 3. Map the funnel
 
 Prompt outputs should use the marketing-funnel labels your product shows:
@@ -184,6 +210,7 @@ Prompt rules:
 - prefer prompts that fit AI conversations and recommendation flows
 - include scenarios, constraints, audiences, budgets, regions, or channels when useful
 - avoid low-value navigational brand variants
+- keep explicit brand-name prompts sparse in the default 50-prompt pack
 
 ### 5. Add GEO judgment, not just prompts
 
@@ -224,6 +251,7 @@ When reviewing an existing prompt list, do not regenerate everything by default.
 Common failure modes:
 
 - no topic map before prompt generation
+- too many topics with too few prompts per topic
 - too many brand prompts
 - no comparison prompts
 - no true non-brand discovery prompts

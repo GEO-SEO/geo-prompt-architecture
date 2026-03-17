@@ -32,8 +32,10 @@ In plain English: it helps you create prompts that are worth monitoring and wort
 ## What This Repo Includes
 
 - a root `SKILL.md` for Codex-style use
+- a GitHub-ready social preview asset in `assets/`
 - input and output `schemas/` for productizing prompt generation
 - `references/` for prompt architecture, vertical playbooks, scoring, and reverse optimization
+- a lightweight GitHub launch checklist in `references/`
 - `examples/` that show how prompt strategy changes by business type
 - `agents/openai.yaml` metadata for skill UI usage
 
@@ -174,6 +176,9 @@ Use $geo-prompt-architecture to turn these AI visibility monitoring results into
 ├── LICENSE
 ├── agents/
 │   └── openai.yaml
+├── assets/
+│   ├── social-preview.png
+│   └── social-preview.svg
 ├── examples/
 │   ├── trip-com-consumer-travel-marketplace.md
 │   └── movinghead-stage-lighting.md
@@ -181,7 +186,8 @@ Use $geo-prompt-architecture to turn these AI visibility monitoring results into
 │   ├── prompt-framework.md
 │   ├── reverse-optimization.md
 │   ├── scoring-model.md
-│   └── vertical-templates.md
+│   ├── vertical-templates.md
+│   └── github-launch-checklist.md
 └── schemas/
     ├── client-brief.schema.json
     ├── prompt-scorecard.schema.json

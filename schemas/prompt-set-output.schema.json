@@ -201,12 +201,9 @@
           "funnel_stage": {
             "type": "string",
             "enum": [
-              "problem-awareness",
-              "solution-education",
-              "category-evaluation",
-              "brand-comparison",
-              "purchase-decision",
-              "use-expansion"
+              "TOFU",
+              "MOFU",
+              "BOFU"
             ]
           },
           "category": {

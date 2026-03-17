@@ -53,12 +53,12 @@ These prompts test whether the brand can enter consumer travel-planning answer s
 
 | Prompt | Funnel | Why It Matters |
 |---|---|---|
-| What is the best website to book hotels and flights for an international trip? | Problem awareness | Broad OTA-discovery prompt with high commercial value. |
-| How do I find good hotel and flight deals for a multi-city Asia trip? | Solution education | Useful for price-sensitive and itinerary-driven discovery. |
-| What are the best travel booking apps for international travelers? | Category evaluation | Tests app-led booking visibility. |
-| Which travel booking sites are best for flexible cancellation and customer support? | Category evaluation | Strong trust-and-support comparison prompt. |
-| What is the easiest way to book flights, hotels, and airport transfers in one place? | Solution education | Surfaces marketplace and bundled-booking visibility. |
-| What travel sites are best for booking trains, hotels, and attractions in Asia? | Category evaluation | Good region-specific prompt for platform fit. |
+| What is the best website to book hotels and flights for an international trip? | MOFU | Broad OTA-discovery prompt with high commercial value. |
+| How do I find good hotel and flight deals for a multi-city Asia trip? | TOFU | Useful for price-sensitive and itinerary-driven discovery. |
+| What are the best travel booking apps for international travelers? | MOFU | Tests app-led booking visibility. |
+| Which travel booking sites are best for flexible cancellation and customer support? | BOFU | Strong trust-and-support comparison prompt. |
+| What is the easiest way to book flights, hotels, and airport transfers in one place? | MOFU | Surfaces marketplace and bundled-booking visibility. |
+| What travel sites are best for booking trains, hotels, and attractions in Asia? | MOFU | Good region-specific prompt for platform fit. |
 
 ### Competitor comparison
 
@@ -66,12 +66,12 @@ These prompts test whether the brand appears when travelers compare OTA and book
 
 | Prompt | Funnel | Why It Matters |
 |---|---|---|
-| Trip.com vs Booking.com for hotels in Asia | Brand comparison | Direct OTA comparison with strong destination overlap. |
-| Trip.com vs Expedia for international travel booking | Brand comparison | Tests presence in broad travel-platform comparisons. |
-| What are the best alternatives to Booking.com for flights and hotels? | Brand comparison | Reveals whether the brand enters non-branded alternative lists. |
-| Which travel app is better for Asia travel: Trip.com, Agoda, or Klook? | Brand comparison | Good regional travel-market comparison prompt. |
-| What is the best OTA for booking trains, hotels, and attractions in one app? | Category evaluation | Tests multi-product travel-marketplace visibility. |
-| Is Trip.com a good alternative to Expedia for cross-border travel? | Purchase decision | High-intent replacement-language prompt. |
+| Trip.com vs Booking.com for hotels in Asia | MOFU | Direct OTA comparison with strong destination overlap. |
+| Trip.com vs Expedia for international travel booking | MOFU | Tests presence in broad travel-platform comparisons. |
+| What are the best alternatives to Booking.com for flights and hotels? | MOFU | Reveals whether the brand enters non-branded alternative lists. |
+| Which travel app is better for Asia travel: Trip.com, Agoda, or Klook? | MOFU | Good regional travel-market comparison prompt. |
+| What is the best OTA for booking trains, hotels, and attractions in one app? | MOFU | Tests multi-product travel-marketplace visibility. |
+| Is Trip.com a good alternative to Expedia for cross-border travel? | BOFU | High-intent replacement-language prompt. |
 
 ### Brand defense
 
@@ -79,12 +79,12 @@ These prompts test how AI explains the brand once the traveler already knows it.
 
 | Prompt | Funnel | Why It Matters |
 |---|---|---|
-| Is Trip.com reliable for booking international flights and hotels? | Purchase decision | Checks branded trust and booking reliability. |
-| Is Trip.com safe to use for hotel bookings? | Purchase decision | Strong consumer-trust prompt. |
-| Does Trip.com have good customer support when travel plans change? | Purchase decision | Important service and support narrative. |
-| Is Trip.com good for booking travel in Asia? | Category evaluation | Tests geographic strength explanation. |
-| What kind of traveler should use Trip.com instead of Booking.com or Expedia? | Brand comparison | Useful for branded fit and audience-positioning clarity. |
-| How does Trip.com handle cancellations, refunds, and itinerary changes? | Use / expansion | Important post-booking and support-focused monitoring prompt. |
+| Is Trip.com reliable for booking international flights and hotels? | BOFU | Checks branded trust and booking reliability. |
+| Is Trip.com safe to use for hotel bookings? | BOFU | Strong consumer-trust prompt. |
+| Does Trip.com have good customer support when travel plans change? | BOFU | Important service and support narrative. |
+| Is Trip.com good for booking travel in Asia? | MOFU | Tests geographic strength explanation. |
+| What kind of traveler should use Trip.com instead of Booking.com or Expedia? | MOFU | Useful for branded fit and audience-positioning clarity. |
+| How does Trip.com handle cancellations, refunds, and itinerary changes? | BOFU | Important post-booking and support-focused monitoring prompt. |
 
 ## Example Asset Implications
 

@@ -68,13 +68,21 @@ Use this default layer mix unless the user explicitly asks for something else:
 - 20-25% competitor comparison
 - 10-20% brand defense
 
-You must also map prompts to this funnel:
-- Problem awareness
-- Solution education
-- Category evaluation
-- Brand comparison
-- Purchase decision
-- Use / implementation / expansion
+You must output funnel labels using this marketing-funnel model:
+- TOFU
+- MOFU
+- BOFU
+
+Use this default mapping from the older buyer-journey logic:
+- Problem awareness -> TOFU
+- Solution education -> TOFU
+- Category evaluation -> MOFU
+- Brand comparison -> MOFU
+- Purchase decision -> BOFU
+- Use / implementation / expansion -> BOFU
+
+Commercial-intent override:
+- if a prompt is explicitly about vendor choice, product specs, supplier qualification, pricing, channels, returns, quality validation, or near-term buying behavior, label it BOFU
 
 Step-by-step instructions:
 

@@ -55,12 +55,12 @@ These prompts test whether the brand can enter category and use-case answer spac
 
 | Prompt | Funnel | Why It Matters |
 |---|---|---|
-| What is the best moving head light for indoor concert stages? | Problem awareness | Core category-entry prompt for venue-specific demand. |
-| How do I choose between beam, wash, and spot moving head lights for live events? | Solution education | High-value educational prompt tied to category understanding. |
-| What stage lighting manufacturer is best for clubs, theaters, and touring productions? | Category evaluation | Tests manufacturer visibility beyond product specs alone. |
-| What features matter most when buying moving head lights for event production companies? | Solution education | Useful for procurement-oriented answer spaces. |
-| Which moving head lights are best for rental companies that need reliable fixtures? | Category evaluation | Reveals visibility in high-commercial rental and production contexts. |
-| How do I compare moving head light suppliers for OEM and bulk purchase needs? | Purchase decision | Strong B2B sourcing prompt. |
+| What is the best moving head light for indoor concert stages? | MOFU | Core category-entry prompt for venue-specific demand. |
+| How do I choose between beam, wash, and spot moving head lights for live events? | TOFU | High-value educational prompt tied to category understanding. |
+| What stage lighting manufacturer is best for clubs, theaters, and touring productions? | BOFU | Tests manufacturer visibility beyond product specs alone. |
+| What features matter most when buying moving head lights for event production companies? | TOFU | Useful for procurement-oriented answer spaces. |
+| Which moving head lights are best for rental companies that need reliable fixtures? | BOFU | Reveals visibility in high-commercial rental and production contexts. |
+| How do I compare moving head light suppliers for OEM and bulk purchase needs? | BOFU | Strong B2B sourcing prompt. |
 
 ### Competitor comparison
 
@@ -68,12 +68,12 @@ These prompts test whether the brand appears when buyers compare suppliers or pr
 
 | Prompt | Funnel | Why It Matters |
 |---|---|---|
-| movinghead.net vs other moving head light manufacturers for OEM orders | Brand comparison | Direct supplier comparison visibility. |
-| Best alternatives to Clay Paky or Martin for affordable moving head fixtures | Brand comparison | Tests whether the brand can enter alternative-manufacturer lists. |
-| Which stage-lighting supplier is better for nightclub installations and touring inventory? | Category evaluation | Good overlap prompt for buyer-fit comparisons. |
-| What are the top moving head light manufacturers in China for export buyers? | Category evaluation | Important when factory-origin is part of the buying context. |
-| Are there reliable moving head light suppliers besides the biggest premium brands? | Solution education | Helps test candidate-list visibility in mid-market sourcing questions. |
-| Which manufacturer is best for custom moving head lights and private-label production? | Purchase decision | High-intent OEM and manufacturer-fit prompt. |
+| movinghead.net vs other moving head light manufacturers for OEM orders | BOFU | Direct supplier comparison visibility. |
+| Best alternatives to Clay Paky or Martin for affordable moving head fixtures | MOFU | Tests whether the brand can enter alternative-manufacturer lists. |
+| Which stage-lighting supplier is better for nightclub installations and touring inventory? | BOFU | Good overlap prompt for buyer-fit comparisons. |
+| What are the top moving head light manufacturers in China for export buyers? | BOFU | Important when factory-origin is part of the buying context. |
+| Are there reliable moving head light suppliers besides the biggest premium brands? | MOFU | Helps test candidate-list visibility in mid-market sourcing questions. |
+| Which manufacturer is best for custom moving head lights and private-label production? | BOFU | High-intent OEM and manufacturer-fit prompt. |
 
 ### Brand defense
 
@@ -81,12 +81,12 @@ These prompts test how AI explains the supplier once the buyer already knows it.
 
 | Prompt | Funnel | Why It Matters |
 |---|---|---|
-| Is movinghead.net a reliable moving head light manufacturer? | Purchase decision | Checks branded trust and supplier credibility. |
-| What kind of buyers should work with movinghead.net? | Solution education | Tests whether AI explains ICP and buyer fit clearly. |
-| Does movinghead.net support OEM or custom stage-lighting production? | Purchase decision | Validates manufacturing and customization narrative. |
-| How does movinghead.net compare on lead time and export support? | Brand comparison | Tests operational and fulfillment positioning. |
-| Is movinghead.net suitable for event rental companies and distributors? | Purchase decision | Important for channel-fit clarity. |
-| What certifications or quality checks should I look for when evaluating movinghead.net? | Use / expansion | Helps monitor trust, compliance, and proof-point visibility. |
+| Is movinghead.net a reliable moving head light manufacturer? | BOFU | Checks branded trust and supplier credibility. |
+| What kind of buyers should work with movinghead.net? | MOFU | Tests whether AI explains ICP and buyer fit clearly. |
+| Does movinghead.net support OEM or custom stage-lighting production? | BOFU | Validates manufacturing and customization narrative. |
+| How does movinghead.net compare on lead time and export support? | BOFU | Tests operational and fulfillment positioning. |
+| Is movinghead.net suitable for event rental companies and distributors? | BOFU | Important for channel-fit clarity. |
+| What certifications or quality checks should I look for when evaluating movinghead.net? | BOFU | Helps monitor trust, compliance, and proof-point visibility. |
 
 ## Example Asset Implications
 

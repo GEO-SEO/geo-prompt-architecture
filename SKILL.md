@@ -141,14 +141,24 @@ Every output should make it clear whether a topic is:
 
 ### 3. Map the funnel
 
-Prompt sets must cover the funnel, not just high-intent terms:
+Prompt outputs should use the marketing-funnel labels your product shows:
 
-- `Problem awareness`
-- `Solution education`
-- `Category evaluation`
-- `Brand comparison`
-- `Purchase decision`
-- `Use / implementation / expansion`
+- `TOFU`
+- `MOFU`
+- `BOFU`
+
+Use this default mapping from the older buyer-journey model:
+
+- `Problem awareness` -> `TOFU`
+- `Solution education` -> `TOFU`
+- `Category evaluation` -> `MOFU`
+- `Brand comparison` -> `MOFU`
+- `Purchase decision` -> `BOFU`
+- `Use / implementation / expansion` -> `BOFU`
+
+Commercial-intent override:
+
+- if a prompt is clearly procurement-led, product-spec specific, supplier/vendor selection oriented, or near-term purchase oriented, prefer `BOFU` even if it would otherwise look like category evaluation or comparison
 
 Read [references/prompt-framework.md](references/prompt-framework.md) when you need the full generation framework.
 
@@ -184,7 +194,7 @@ For each prompt, include enough structure to make the set operational. Default f
 - topic_source
 - topic_type
 - layer
-- funnel stage
+- funnel stage (`TOFU` / `MOFU` / `BOFU`)
 - category
 - product line
 - target customer

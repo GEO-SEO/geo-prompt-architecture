@@ -95,6 +95,14 @@ Recommended default mix:
 - `20-25%` competitor comparison
 - `10-20%` brand defense
 
+Prompt outputs should use `TOFU / MOFU / BOFU` as the visible funnel labels.
+
+Default mapping:
+
+- `TOFU`: broad awareness and educational exploration
+- `MOFU`: evaluation, alternatives, and comparison
+- `BOFU`: explicit commercial, purchase, procurement, or brand-validation intent
+
 ## Why This Matters For GEO
 
 Prompt architecture shapes everything downstream:

@@ -129,20 +129,26 @@ Avoid low-value brand navigation prompts unless the user explicitly wants them.
 
 ## 4. Funnel mapping
 
-Every strong prompt set should cover:
+Prompt outputs should use `TOFU / MOFU / BOFU` as the visible funnel labels.
 
-1. `Problem awareness`
-2. `Solution education`
-3. `Category evaluation`
-4. `Brand comparison`
-5. `Purchase decision`
-6. `Use / implementation / expansion`
+Use this default mapping from the older buyer-journey model:
+
+- `Problem awareness` -> `TOFU`
+- `Solution education` -> `TOFU`
+- `Category evaluation` -> `MOFU`
+- `Brand comparison` -> `MOFU`
+- `Purchase decision` -> `BOFU`
+- `Use / implementation / expansion` -> `BOFU`
+
+Commercial-intent override:
+
+- if a prompt is explicitly about vendor choice, product specs, supplier qualification, pricing, channels, returns, quality validation, or near-term buying behavior, prefer `BOFU`
 
 Recommended bias by layer:
 
-- non-brand discovery: stages 1-3
-- competitor comparison: stages 3-5
-- brand defense: stages 4-6
+- non-brand discovery: mostly `TOFU`, with some `MOFU`
+- competitor comparison: mostly `MOFU`, with `BOFU` for explicit purchase or procurement questions
+- brand defense: mostly `BOFU`, with some `MOFU` when the prompt is still evaluation-led rather than decision-led
 
 ## 5. Topic quality rules
 

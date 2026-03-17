@@ -41,16 +41,20 @@ Score down when:
 
 ### Funnel coverage: 15 points
 
-Check whether the set covers:
+Check whether the set has healthy `TOFU / MOFU / BOFU` coverage.
 
-- problem awareness
-- solution education
-- category evaluation
-- brand comparison
-- purchase decision
-- use / implementation / expansion
+Use this mapping logic:
 
-Score down when the set misses whole stages.
+- `TOFU`: awareness and education
+- `MOFU`: evaluation and comparison
+- `BOFU`: explicit commercial, purchase, procurement, or brand-validation intent
+
+Score down when:
+
+- everything collapses into BOFU
+- there is no TOFU discovery coverage
+- there is no MOFU comparison or evaluation coverage
+- BOFU prompts are too weak to support real decision-stage monitoring
 
 ### Business-model fit: 20 points
 
